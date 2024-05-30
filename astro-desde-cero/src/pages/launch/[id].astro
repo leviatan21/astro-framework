@@ -1,0 +1,44 @@
+---
+import Layout from '../../layouts/Layout.astro'
+import { getLaunchById } from '../../services/spacex'
+
+// funciona en el server gracias al "output": "hybrid" or "server" en el /astro.config.mjs
+export const prerender = false
+
+/**
+// Astro debe saber estaticamente todos los id posibles
+export async function getStaticPaths() {
+  const launches = await getLatestLaunches()
+  return launches.map(launch => (
+    {'params': {'id': launch.id }}
+  ))
+  //  return [ {params: {id: '5eb87cd9ffd86e000604b32a' }} ];
+}
+*/
+
+const {
+  id=""
+} = Astro.params
+console.log('params', id)
+
+if (!id) {
+  return Astro.redirect('404')
+}
+
+const launch = await getLaunchById(id)
+// console.log('launch', JSON.stringify(launch) )
+---
+<Layout title={`Launch ${launch.id}`} main='launch'>
+  <article class="flex flex-col gap-y-4">
+    <img
+      class="mb-5 mt-5 w-52 h-auto patch"
+      src={launch.links.patch.small}
+      alt={`Patch for launch ${launch.name}`}
+      loading='lazy'
+      fetchpriority='low'
+      />
+    <h1>Launch #{launch.flight_number}</h1>
+    <p>{launch.name}</p>
+    <p>{launch.details}</p>
+  </article>
+</Layout>

@@ -1,0 +1,83 @@
+---
+/*
+https://astro.build/
+https://docs.astro.build/en/guides/deploy/vercel/
+
+ https://www.youtube.com/watch?v=RB5tR_nqUEw
+ https://youtu.be/RB5tR_nqUEw?si=7D-Xx_2z675SKKLu&t=3690
+
+ npm install -g pnpm
+ pnpm create astro@latest
+ pnpm astro --help
+ pnpm astro add --help
+ pnpm astro add tailwind
+
+https://tablericons.com/
+*/
+import { ViewTransitions } from 'astro:transitions';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+// console.log('props', Astro.props)
+
+const {
+  main="",
+  title,
+  description="SpaceX Launches",
+  lang="es-ES"
+} = Astro.props;
+
+---
+
+<!doctype html>
+<html lang={lang}>
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width" />
+		<meta name="description" content={description} />
+		<meta name="generator" content={Astro.generator} />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<title>{title}</title>
+    <ViewTransitions />
+	</head>
+	<body class="bg-gray-900 min-h-screen pb-32">
+    <Header />
+    <main class={`main ${main} mx-auto max-w-5xl py-8 px-4 lg:py-16 lg:px-6`}>
+      <slot />
+    </main>
+    <Footer />
+	</body>
+</html>
+<style is:global>
+	html {
+		font-family: system-ui, sans-serif;
+		background-color: aliceblue;
+    background: #13151a;
+		background-size: 224px;
+    color-scheme: dark light;
+    height: 101%;
+	}
+
+  .header {
+    margin: auto;
+		padding: 1rem;
+		color: white;
+		font-size: 20px;
+		line-height: 1.6;
+  }
+  .main {
+    color: white;
+    min-height: 1vh;
+	}
+  .footer {
+    margin: auto;
+		padding: 1rem;
+		color: white;
+		font-size: 20px;
+		line-height: 1.6;
+  }
+  ol, ul, menu {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+</style>

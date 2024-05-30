@@ -1,0 +1,51 @@
+---
+const {
+  id,
+  img='',
+  success=true,
+  flightNumber=0,
+  details=''
+} = Astro.props;
+---
+
+<a
+  class="flex flex-col rounded-lg transition border border-gray-700 bg-gray-800 hover:scale-105 hover:bg-gray-700 hover:border-gray-500"
+  href={`/launch/${id}`}
+  id={id}
+>
+  <picture class="flex justify-center p-4">
+    <img
+      class="mb-5 mt-5 rounded-lg patch"
+      src={img}
+      alt={`Patch for launch ${id}`}
+      loading='lazy'
+      fetchpriority='low'
+    />
+  </picture>
+  <header class="p-4 flex-grow">
+    <span
+      class:list={[
+        'text-xs font-semibold mr-2 px-2.5 py-0.5 rounded',
+        {
+          'bg-green-200 text-green-900': success,
+          'bg-red-200 text-red-900': !success
+        }
+      ]}
+    >
+      {success ? 'Success' : 'Failure' }
+    </span>
+    <h2 class="my-2 text-2xl font-bold tracking-tight text-white">
+      Flight #{flightNumber}
+    </h2>
+    <p class="mb-4 font-light text-gray-400">
+      {details && details.length > 100 ? details.slice(0, 100)+'...' : details}
+    </p>
+  </header>
+</a>
+
+<style>
+  .patch {
+    height:120px; 
+    width:auto;
+  }
+</style>
