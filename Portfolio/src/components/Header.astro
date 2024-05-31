@@ -1,0 +1,59 @@
+---
+import ThemeToggle from './ThemeToggle.astro'
+import ImageSource from './ImageSource.astro'
+
+const navItems = [
+  {
+    title: "Experiencia",
+    label: "experiencia",
+    url: "/#experiencia",
+  },
+  {
+    title: "Proyectos",
+    label: "proyectos",
+    url: "/#proyectos",
+  },
+  {
+    title: "Sobre mí",
+    label: "sobre-mi",
+    url: "/#sobre-mi",
+  },
+  {
+    title: "Contacto",
+    label: "contacto",
+    url: "mailto:gmail@gmail.com",
+  },
+]
+---
+
+<header class="flex items-center justify-center w-full xl:w-[1120px] mx-auto px-5 py-5 gap-x-4">
+  <a href="/" title="Inicio" class="size-10 mr-auto contents">
+    <ImageSource
+      src="https://avatars.githubusercontent.com/u/561955" 
+      alt="Portfolio"
+      className="rounded-full size-10 mr-auto"
+      loading="eager"
+    />
+  </a>
+  <nav
+    class="flex px-3 text-xs md:text-sm font-medium rounded-full text-gray-400 dark:text-gray-100 justify-center items-center"
+  >
+    {navItems.map((link) => (
+      <a
+        class="relative text-nowrap block px-2 py-2 transition hover:text-yellow-500 dark:hover:text-yellow-400"
+        aria-label={link.label}
+        href={link.url}
+      >
+        {link.title}
+      </a>
+    ))}
+    {/* <ThemeToggle /> */}
+  </nav>
+</header>
+
+<style>
+  header {
+    background-color: #05050580;
+  }
+
+</style>

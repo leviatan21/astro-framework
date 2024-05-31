@@ -1,0 +1,22 @@
+---
+// https://docs.astro.build/es/guides/images/
+import { Image } from 'astro:assets'
+
+const {
+  src='',
+  alt='',
+  className='',
+  loading='lazy',
+  ...attrs
+} = Astro.props
+---
+
+<Image 
+  src={src}
+  alt={alt}
+  className={`image-source initial ${className}`}
+  loading={loading}
+  fetchpriority={loading==='lazy' ? 'low' : 'high'}
+  inferSize={true}
+  {...attrs}
+/>

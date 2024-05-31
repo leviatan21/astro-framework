@@ -1,0 +1,29 @@
+---
+import SocialPill from './SocialPill.astro'
+import IconGitHub from './icons/GitHub.astro'
+import IconGitLab from './icons/GitLab.astro'
+import IconLinkedIn from './icons/LinkedIn.astro'
+import IconMail from './icons/Mail.astro'
+---
+<ul class="text-white py-4 mt-8 flex flex-col md:flex-row gap-4">
+  <li>
+    <SocialPill href="https://www.linkedin.com/">
+      <IconLinkedIn class="size-6" /> LinkedIn
+    </SocialPill>
+  </li>
+  <li>
+    <SocialPill href="https://github.com/">
+      <IconGitHub class="size-6" /> Github
+    </SocialPill>
+  </li>
+  <li>
+    <SocialPill href="https://gitlab.com/">
+      <IconGitLab class="size-6" /> Gitlab
+    </SocialPill>
+  </li>
+  <li>
+    <SocialPill href="mailto:gmail@gmail.com">
+      <IconMail class="size-6" /> Gmail
+    </SocialPill>
+  </li>
+</ul>

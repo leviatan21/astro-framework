@@ -1,0 +1,52 @@
+---
+import Layout from '../layouts/Layout.astro'
+import Section from '../components/Section.astro'
+import Badge from '../components/Badge.astro'
+import SocialPills from '../components/SocialPills.astro'
+import Experience from '../components/Experience.astro'
+import Projects from '../components/Projects.astro'
+import AboutMe from '../components/AboutMe.astro'
+---
+
+<Layout
+  title="Desarrollador y Programador Web con 15 años de experiencia | Porfolio"
+  description="Contrata a Porfolio para crear tu aplicación web o móvil. Desarrollador Web y Creador de Contenido. Especializado en crear aplicaciones únicas."
+>
+
+  <Section className="py-20">
+    <h1 class="text-white text-3xl md:text-4xl xl:text-5xl font-bold flex flex-row gap-x-4 pb-6 md:pb-10">
+      Hey soy Porfolio 
+      <a 
+        class="flex justify-center items-center"
+        href="https://www.linkedin.com/"
+        target="_blank"
+        rel="noopener"
+      >
+        <Badge>Disponible para trabajar</Badge>
+      </a>
+    </h1>
+    <h2 class="text-white text-xl md:text-2xl text-wrap max-w-full">
+      <span>+15 años de experiencia.</span>
+      <span class="text-yellow-200/90"> Desarrollador web y Creador de Contenidos.</span> 
+      <span class="text-red-200/90"> De Ciudad, Pais.</span>
+      <span class="opacity-80"> Especializado en crear aplicaciones únicas.</span>
+    </h2>
+  </Section>
+
+  <Section className="py-20">
+    <SocialPills />
+  </Section>
+
+  <Section className="py-20" id="experiencia">
+    <Experience />
+  </Section>
+
+  <Section className="py-20" id="proyectos">
+    <Projects />
+  </Section>
+
+  <Section className="py-20" id="sobre-mi">
+    <AboutMe />
+  </Section>
+
+</Layout>

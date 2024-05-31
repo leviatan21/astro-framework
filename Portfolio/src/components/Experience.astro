@@ -1,0 +1,49 @@
+---
+import ExperienceItem from './ExperienceItem.astro'
+import IconDatabricks from './icons/Databricks.astro'
+
+const experience = [
+  {
+    date: "Actualmente...",
+    title: "Creador de Contenido",
+    company: "Twitch",
+    description: "Divulgo sobre programación y desarrollo web en diferentes plataformas. Galardonado como mejor creador de contenido de habla no-inglesa en 2022 y mejor comunidad en 2023 por GitHub.",
+    link: "https://twitch.tv/",
+  },
+  {
+    date: "Septiembre 2023 - Enero 2024",
+    title: "Principal Frontend Engineer",
+    company: "Adevinta Spain",
+    description: "Responsable de la plataforma, componentes y utilidades para la creación y desarrollo de aplicaciones web. Mejora de un 30% en la entrega de software. Implantación de medidas de integración continua y despliegue con A/B testing en más de 15 equipos.",
+  },
+  {
+    date: 'Abril 2022 - Septiembre 2023',
+    title: 'E-Commerce UI code in Tailwind CSS',
+    company: 'Free company',
+    description: 'Get started with dozens of web components and interactive elements built on top of Tailwind CSS.',
+  },
+  {
+    date: 'Marzo 2021 - Abril 2022',
+    title: 'Marketing UI design in Figma',
+    company: 'Free company',
+    description: 'All of the pages and components are first designed in Figma and we keep a parity between the two versions even as we update the project.',
+  },
+  {
+    date: 'February 2020 - Marzo 2021',
+    title: 'Application UI code in Tailwind CSS',
+    company: 'Free company',
+    description: 'Get access to over 20+ pages including a dashboard layout, charts, kanban board, calendar, and pre-order E-commerce & Marketing pages.',
+    link: '/'
+  }
+]
+---
+<h2 class="flex items-center gap-x-3 text-2xl text-white font-semibold mb-6">
+  <a href="#experiencia">
+    <IconDatabricks class='size-7 opacity-40' />
+  </a>
+  Experiencia laboral
+</h2>
+<ol class="relative border-s border-gray-200 ml-3.5">
+  {experience.map(item => <ExperienceItem {...item} /> )}
+</ol>
+
